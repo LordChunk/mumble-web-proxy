@@ -15,7 +15,7 @@ RUN curl https://codeload.github.com/ohmykreee/mumble-web-proxy/tar.gz/$REV \
 RUN echo -e '\n[dependencies."async-trait"]\ndefault-features = false' >> Cargo.toml
 RUN RUSTFLAGS="-C target-feature=-crt-static" cargo install --path .
 
-FROM rust:1.56-alpine
+FROM alpine:3.14.6
 
 RUN apk add --no-cache \
     bash \
