@@ -1,4 +1,4 @@
-FROM rust:1.48-alpine AS build
+FROM rust:1.56-alpine AS build
 
 ARG REV=master
 
@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     openssl-dev \
     ;
 WORKDIR /src
-RUN curl https://codeload.github.com/Johni0702/mumble-web-proxy/tar.gz/$REV \
+RUN curl https://codeload.github.com/ohmykreee/mumble-web-proxy/tar.gz/$REV \
     | tar -xzf - --strip-components 1
 RUN echo -e '\n[dependencies."async-trait"]\ndefault-features = false' >> Cargo.toml
 RUN RUSTFLAGS="-C target-feature=-crt-static" cargo install --path .
