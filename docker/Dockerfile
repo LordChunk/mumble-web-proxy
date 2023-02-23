@@ -15,12 +15,15 @@ RUN curl https://codeload.github.com/ohmykreee/mumble-web-proxy/tar.gz/$REV \
 RUN echo -e '\n[dependencies."async-trait"]\ndefault-features = false' >> Cargo.toml
 RUN RUSTFLAGS="-C target-feature=-crt-static" cargo install --path .
 
-FROM alpine
+FROM rust:1.56-alpine
 
 RUN apk add --no-cache \
     bash \
-    libgcc \
-    libnice \
+    clang-libs \
+    curl \
+    libc-dev \
+    libnice-dev \
+    openssl-dev \
     ;
 COPY --from=build /usr/local/cargo/bin/mumble-web-proxy /mumble-web-proxy
 COPY entrypoint.sh /entrypoint.sh
