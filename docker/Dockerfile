@@ -19,11 +19,8 @@ FROM alpine:3.14.6
 
 RUN apk add --no-cache \
     bash \
-    clang-libs \
-    curl \
-    libc-dev \
-    libnice-dev \
-    openssl-dev \
+    libgcc \
+    libnice \
     ;
 COPY --from=build /usr/local/cargo/bin/mumble-web-proxy /mumble-web-proxy
 COPY entrypoint.sh /entrypoint.sh
