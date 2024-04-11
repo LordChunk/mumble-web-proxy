@@ -9,16 +9,16 @@ argparse = "0.2.2"
 bytes = "1"
 byteorder = "1.2"
 futures = { version = "0.3", features = ["compat", "io-compat"] }
-toml = "0.5"
+toml = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
-tokio-util = { version = "0.6", features = ["codec"] }
+tokio-util = { version = "0.7", features = ["codec"] }
 tokio-native-tls = "0.3"
 native-tls = "0.2"
 mumble-protocol = { version = "0.4", features = ["webrtc-extensions"] }
-tokio-tungstenite = "0.13"
-http = "0.2"
-tungstenite = "0.12"
+tokio-tungstenite = "0.21"
+http = "1"
+tungstenite = "0.21"
 rtp = { git = "https://github.com/Skgland/rtp", rev = "83eb4dd", features = ["rfc5764-openssl"] }
 libnice = "0.3"
 webrtc-sdp = "0.3"
